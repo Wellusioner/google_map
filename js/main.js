@@ -30,6 +30,7 @@ $(function(){
 		placesAutocomplete.on('change', handleOnChange);
 		placesAutocomplete.on('clear', handleOnClear);
 
+		// add location button
 		$('#add-location').on('click', function(){
 			if(addressArray.length == 0){
 				 const tableHeader = '<tr><th>№</th><th>Address name</th></tr>';
@@ -38,7 +39,7 @@ $(function(){
 			addAdress();
 		});	
 
-	
+	// on clear event
 	function handleOnClear() {
 		$('#add-location').prop('disabled', true);
 		if(oneMarker){
@@ -51,6 +52,7 @@ $(function(){
 		renderAddress();
 	}
 	
+	// on change event
 	function handleOnChange(e) {
 
 		const addressName = e.suggestion.name + ', ' + e.suggestion.country;
@@ -75,6 +77,7 @@ $(function(){
 
 	}
 	
+	// add address
 	function addAdress(){
 		placesAutocomplete.setVal('');
 		if(oneMarker){
@@ -112,6 +115,7 @@ $(function(){
 		$('#add-location').prop('disabled', true);
 	}
 	
+	//render addresses
 	function renderAddress(){
 		var bounds = new google.maps.LatLngBounds();		
 
@@ -125,30 +129,30 @@ $(function(){
 		}
 	}
 	
-	
-		window.deleteMarker = function(id){
-			markers.forEach(function(item, index){
-				if (index == id) {
-					
-					markers[index].setMap(null);
-					
-					addressArray.splice(index,1);
-					markers.splice(index,1);
-					
-					return true
-				}
-			});
-			if(addressArray.length != 0){
-				addAdress();
+	//delete a marker
+	window.deleteMarker = function(id){
+		markers.forEach(function(item, index){
+			if (index == id) {
+
+				markers[index].setMap(null);
+
+				addressArray.splice(index,1);
+				markers.splice(index,1);
+
+				return true
 			}
-			if(addressArray.length == 1){
-				setTimeout(function(){map.setZoom(5);	}, 300);
-			}
-			if(addressArray.length == 0){
-				map.setCenter(latlng);
-				$('.address-group').text('');
-				$('.adress-head').text('');
-			}
+		});
+		if(addressArray.length != 0){
+			addAdress();
 		}
+		if(addressArray.length == 1){
+			setTimeout(function(){map.setZoom(5);	}, 300);
+		}
+		if(addressArray.length == 0){
+			map.setCenter(latlng);
+			$('.address-group').text('');
+			$('.adress-head').text('');
+		}
+	}
 
 })
