@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Maps</title>
+  </head>
+  <body>
+
+    <div class="row m-0 p-3">
+        <div class="col-md-4 card card-header p-3">
+            <form id="gmb-form">
+                <div class="form-group">
+                    <label for="gmb-name"><strong>Google My Business Listing Name:</strong></label>
+                    <input type="text" id="gmb-name" name="gmb-name" class="form-control" placeholder="Your listing name as it appears on Google." required />
+                </div>
+                <div class="form-group">
+                    <label for="keywords"><strong>Keywords:</strong></label><br />
+                    <textarea id="keywords" name="keywords" rows="5" class="form-control" placeholder="(1 keyword per line) Don't include geo-modifiers such as city names or postcodes. We'll set locations below." required></textarea>
+                </div>
+                <hr>
+                <table class="table table-bordered">
+                	<thead class="adress-head">
+                		
+                	</thead>
+                	<tbody class="address-group">
+									<!-- Address goes here-->
+                	</tbody>
+                </table>
+                <div class="adress-input-group">
+                	
+                </div>
+                <div class="form-group">
+                    <input type="text" name="location0" id="location0" placeholder="Street Address, City, Region or Zip/Postcode" class="form-control my-1" />
+                    <!-- Add a "x" delete button -->
+                </div>
+                <hr>
+                <div class="form-group">
+                    <button type="button" name="add-location" id="add-location" class="btn btn-small button-outline"><i class="fa fa-plus"></i> Add Location</button>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-primary btn-block" />
+                </div>
+            </form>
+        </div>
+        <div class="col">
+            <div id="map" class="gmb-map" width="100%" height="80%" style="border-radius:15px !important;"></div>
+        </div>
+    </div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeuwWyo0lc0AZDQh8PO6mjkgwFvLzwGaM"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="./js/algoliaPlaces.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
